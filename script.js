@@ -69,52 +69,42 @@ if (menuToggle && navLinks) {
 }
 
 
-/* AUTOMATIC TYPING ANIMATION */
+/* SMOOTH AUTOMATIC ROLE ANIMATION */
 
-const typedRole = document.getElementById("typedRole");
+const roleElement = document.getElementById("typedRole");
 
-if (typedRole) {
+if (roleElement) {
   const roles = [
     "Aspiring Software Developer",
-    "Web Developer",
-    "PHP Developer",
     "Frontend Developer",
+    "PHP Developer",
+    "Web Developer",
     "Programmer"
   ];
 
-  let roleIndex = 0;
-  let charIndex = roles[0].length;
-  let deleting = true;
+  let currentIndex = 0;
 
-  function typeRole() {
-    const currentRole = roles[roleIndex];
+  setInterval(() => {
+    roleElement.classList.add("role-change");
 
-    if (deleting) {
-      charIndex--;
-    } else {
-      charIndex++;
-    }
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % roles.length;
 
-    typedRole.textContent = currentRole.substring(0, charIndex);
+      roleElement.textContent = roles[currentIndex];
 
-    let delay = deleting ? 60 : 100;
+      roleElement.classList.remove("role-change");
 
-    if (!deleting && charIndex === currentRole.length) {
-      deleting = true;
-      delay = 1800;
-    } else if (deleting && charIndex === 0) {
-      deleting = false;
-      roleIndex = (roleIndex + 1) % roles.length;
-      delay = 400;
-    }
+      // Restart entrance animation
+      void roleElement.offsetWidth;
 
-    setTimeout(typeRole, delay);
-  }
+      roleElement.style.animation = "none";
+      void roleElement.offsetWidth;
+      roleElement.style.animation = "";
 
-  setTimeout(typeRole, 1800);
+    }, 350);
+
+  }, 2800);
 }
-
-
 /* 5. LIGHT / DARK THEME */
 const themeToggle = document.getElementById("themeToggle");
 
