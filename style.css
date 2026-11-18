@@ -463,3 +463,32 @@ html {
     gap: 10px;
   }
 }
+/* FORCE HERO TEXT TO SHOW ON MOBILE */
+@media screen and (max-width: 768px) {
+
+  .hero-content .reveal,
+  .hero-content .reveal.visible,
+  .hero-content h1,
+  .hero-content h1 span {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    clip-path: none !important;
+    display: block !important;
+  }
+
+  .hero-content h1 {
+    color: #ffffff !important;
+    font-size: 38px !important;
+    text-align: center !important;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-content .gradient-text {
+    background: linear-gradient(90deg, #65bd7d, #a5e6ad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
