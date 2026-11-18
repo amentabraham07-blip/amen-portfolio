@@ -392,3 +392,24 @@ html {
     grid-template-columns: 1fr !important;
   }
 }
+/* FIX HERO TEXT VISIBILITY ON MOBILE */
+@media (max-width: 768px) {
+
+  .hero-content .reveal {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition-delay: 0s !important;
+  }
+
+  .hero-content h1 {
+    display: block !important;
+    color: #ffffff;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-content h1 .gradient-text {
+    display: inline !important;
+  }
+}
