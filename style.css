@@ -392,3 +392,29 @@ html {
     grid-template-columns: 1fr !important;
   }
 }
+/* Fix hero section on mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    height: auto;
+    padding: 110px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 10vw, 52px);
+    line-height: 1.15;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-content {
+    width: 100%;
+    text-align: center;
+  }
+}
