@@ -8,6 +8,13 @@
 /* 1. SCROLL REVEAL */
 const revealItems = document.querySelectorAll(".reveal");
 
+// Keep the main hero heading visible immediately
+const heroHeading = document.querySelector(".hero h1");
+
+if (heroHeading) {
+  heroHeading.classList.add("visible");
+}
+
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -19,14 +26,20 @@ if ("IntersectionObserver" in window) {
       });
     },
     {
-      threshold: 0.12,
-      rootMargin: "0px 0px -35px 0px"
+      threshold: 0.05,
+      rootMargin: "0px 0px 0px 0px"
     }
   );
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+  revealItems.forEach((item) => {
+    if (item !== heroHeading) {
+      revealObserver.observe(item);
+    }
+  });
 } else {
-  revealItems.forEach((item) => item.classList.add("visible"));
+  revealItems.forEach((item) => {
+    item.classList.add("visible");
+  });
 }
 
 
