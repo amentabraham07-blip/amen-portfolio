@@ -69,37 +69,40 @@ if (menuToggle && navLinks) {
 }
 
 
-/* 4. TYPING ANIMATION */
-const role = document.getElementById("typedRole");
+/* AUTOMATIC TYPING ANIMATION */
 
-const roles = [
-  "Aspiring Software Developer",
-  "Web Development Enthusiast",
-  "Creative Designer"
-];
+const typedRole = document.getElementById("typedRole");
 
-if (role) {
+if (typedRole) {
+  const roles = [
+    "Aspiring Software Developer",
+    "Web Developer",
+    "PHP Developer",
+    "Frontend Developer",
+    "Programmer"
+  ];
+
   let roleIndex = 0;
-  let characterIndex = roles[0].length;
-  let deleting = false;
+  let charIndex = roles[0].length;
+  let deleting = true;
 
   function typeRole() {
     const currentRole = roles[roleIndex];
 
     if (deleting) {
-      characterIndex--;
+      charIndex--;
     } else {
-      characterIndex++;
+      charIndex++;
     }
 
-    role.textContent = currentRole.substring(0, characterIndex);
+    typedRole.textContent = currentRole.substring(0, charIndex);
 
-    let delay = deleting ? 45 : 85;
+    let delay = deleting ? 60 : 100;
 
-    if (!deleting && characterIndex === currentRole.length) {
+    if (!deleting && charIndex === currentRole.length) {
       deleting = true;
-      delay = 1500;
-    } else if (deleting && characterIndex === 0) {
+      delay = 1800;
+    } else if (deleting && charIndex === 0) {
       deleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
       delay = 400;
