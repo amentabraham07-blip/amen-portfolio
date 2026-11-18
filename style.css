@@ -418,3 +418,42 @@ html {
     text-align: center;
   }
 }
+/* Fix mobile hero layout */
+@media (max-width: 768px) {
+
+  .hero {
+    min-height: 100vh;
+    height: auto;
+    padding: 120px 20px 50px;
+    overflow: visible;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero h1,
+  .hero p,
+  .hero-content h1,
+  .hero-content p {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero img {
+    max-width: 220px;
+    height: auto;
+  }
+}
