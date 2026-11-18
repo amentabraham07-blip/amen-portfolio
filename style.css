@@ -413,3 +413,43 @@ html {
     display: inline !important;
   }
 }
+/* SMOOTH ROLE SWITCH ANIMATION */
+
+.role-animation {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  min-height: 1.4em;
+}
+
+#typedRole {
+  display: inline-block;
+  color: var(--teal);
+  animation: roleEnter 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+#typedRole.role-change {
+  animation: roleExit 0.35s ease forwards;
+}
+
+@keyframes roleEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes roleExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
