@@ -468,3 +468,20 @@ html {
   opacity: 1;
   transform: translateY(0);
 }
+/* Restore scroll indicator */
+.scroll-cue {
+  display: flex !important;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  visibility: visible;
+  opacity: 1;
+}
+
+.scroll-cue span {
+  display: block;
+}
