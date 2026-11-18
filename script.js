@@ -69,7 +69,7 @@ if (menuToggle && navLinks) {
 }
 
 
-/* SMOOTH AUTOMATIC ROLE ANIMATION */
+/* AUTOMATIC ROLE CHANGE WITH SMOOTH FADE */
 
 const roleElement = document.getElementById("typedRole");
 
@@ -82,28 +82,25 @@ if (roleElement) {
     "Programmer"
   ];
 
-  let currentIndex = 0;
+  let index = 0;
 
   setInterval(() => {
-    roleElement.classList.add("role-change");
+    roleElement.classList.add("fade-out");
 
     setTimeout(() => {
-      currentIndex = (currentIndex + 1) % roles.length;
+      index = (index + 1) % roles.length;
+      roleElement.textContent = roles[index];
 
-      roleElement.textContent = roles[currentIndex];
+      roleElement.classList.remove("fade-out");
+      roleElement.classList.add("fade-in");
 
-      roleElement.classList.remove("role-change");
+      setTimeout(() => {
+        roleElement.classList.remove("fade-in");
+      }, 500);
 
-      // Restart entrance animation
-      void roleElement.offsetWidth;
+    }, 500);
 
-      roleElement.style.animation = "none";
-      void roleElement.offsetWidth;
-      roleElement.style.animation = "";
-
-    }, 350);
-
-  }, 2800);
+  }, 2500);
 }
 /* 5. LIGHT / DARK THEME */
 const themeToggle = document.getElementById("themeToggle");
