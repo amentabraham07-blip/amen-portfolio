@@ -453,3 +453,18 @@ html {
     transform: translateY(-20px);
   }
 }
+#typedRole {
+  display: inline-block;
+  color: var(--teal);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#typedRole.fade-out {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+#typedRole.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
