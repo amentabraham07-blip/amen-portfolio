@@ -485,3 +485,21 @@ html {
 .scroll-cue span {
   display: block;
 }
+@media (max-width: 550px) {
+  .hero h1 {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    line-height: 1.2;
+    color: var(--text);
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero h1 .gradient-text {
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
